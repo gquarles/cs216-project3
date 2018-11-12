@@ -123,19 +123,52 @@ int main() {
         i++;
     }
     
-    cout << "Buildings" << endl;
-    printf("%-20s%-20s%-20s\n", "Identifier", "Description", "Value");
-    i = 0;
-    while (i < numBuildings) {
-        GenericRecord <Building> record;
-        Building building;
+    if (numBuildings > 0) {
+        cout << "Buildings" << endl;
+        printf("%-20s%-20s%-20s\n", "Identifier", "Description", "Value");
+        i = 0;
+        while (i < numBuildings) {
+            GenericRecord <Building> record;
+            Building building;
 
-        record = buildingRecords[i];
-        building = record.getRecord();
+            record = buildingRecords[i];
+            building = record.getRecord();
 
-        printf("%-20s%-20s%-.5f\n", building.Identifier.c_str(), building.Description.c_str(), building.Value);
-        //cout << building.Description << endl << building.Identifier << endl << building.Value;
-        i++;
+            printf("%-20s%-20s%-.5f\n", building.Identifier.c_str(), building.Description.c_str(), building.Value);
+            i++;
+        }
+    }
+
+    if (numComputers > 0) {
+        cout << endl << "Computers" << endl;
+        printf("%-20s%-20s%-20s\n", "Identifier", "Description", "Value");
+        i = 0;
+        while (i < numComputers) {
+            GenericRecord <Computer> record;
+            Computer computer;
+
+            record = computerRecords[i];
+            computer = record.getRecord();
+
+            printf("%-20ld%-20s%-.5f\n", computer.Identifier, computer.Description.c_str(), computer.Value);
+            i++;
+        }
+    }
+
+    if (numFurniture > 0) {}
+        cout << endl << "Furniture" << endl;
+        printf("%-20s%-20s%-20s\n", "Identifier", "Description", "Value");
+        i = 0;
+        while (i < numFurniture) {
+            GenericRecord <Furniture> record;
+            Furniture furniture;
+
+            record = furnitureRecords[i];
+            furniture = record.getRecord();
+
+            printf("%-20d%-20s%-.5f\n", furniture.Identifier, furniture.Description.c_str(), furniture.Value);
+            i++;
+        }
     }
 
 

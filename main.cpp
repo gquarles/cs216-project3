@@ -24,6 +24,46 @@ struct Building {
     double Value;
 };
 
+int getInt(string question) {
+    int input;
+
+    cout << question;
+    cin >> input;
+
+    while (cin.fail()) {
+        cin.clear();
+        cin.ignore(256,'\n');
+        cout << endl << "Error please input a number." << endl << question;
+        cin >> input;
+    }
+    cin.ignore();
+    return input;
+}
+
+string getString(string question) {
+    string input;
+    cout << question;
+    getline(cin, input);
+
+    return input;
+}
+
+float getFloat(string question) {
+    float input;
+
+    cout << question;
+    cin >> input;
+
+    while (cin.fail()) {
+        cin.clear();
+        cin.ignore(256,'\n');
+        cout << endl << "Error please input a number." << endl << question;
+        cin >> input;
+    }
+    cin.ignore();
+    return input;
+}
+
 int main() {
     GenericRecord <Building> * buildingRecords = NULL;
     GenericRecord <Computer> * computerRecords = NULL;
@@ -31,14 +71,9 @@ int main() {
 
     int numBuildings, numComputers, numFurniture;
 
-    cout << "How many buildings: ";
-    cin >> numBuildings;
-
-    cout << endl << "How many Computers: ";
-    cin >> numComputers;
-
-    cout << endl << "How many Furniture: ";
-    cin >> numFurniture;
+    numBuildings = getInt("How many buildings: ");
+    numComputers = getInt("How many Computers: ");
+    numFurniture = getInt("How many Furniture: ");
 
     buildingRecords = new GenericRecord <Building> [numBuildings];
     computerRecords = new GenericRecord <Computer> [numComputers];
@@ -56,6 +91,7 @@ int main() {
     computerRecords[0].setRecord(comp);
     comp2 = computerRecords[0].getRecord();
     cout << comp2.Description;
+    
 
     delete [] buildingRecords;
     delete [] computerRecords;

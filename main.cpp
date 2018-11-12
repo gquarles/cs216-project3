@@ -79,18 +79,51 @@ int main() {
     computerRecords = new GenericRecord <Computer> [numComputers];
     furnitureRecords = new GenericRecord <Furniture> [numFurniture];
 
-    GenericRecord <Computer> test;
-    computerRecords[0] = test;
+    cout << endl;
+    int i = 0;
+    while (i < numBuildings) {
+        GenericRecord <Building> record;
+        Building building;
+        building.Description = getString("Enter description of building " + to_string(i + 1) + ": ");
+        building.Identifier = getInt("Enter identifier of building " + to_string(i + 1) + ": ");
+        building.Value = getFloat("Enter value of building " + to_string(i + 1) + ": ");
+        record.setRecord(building);
+        
+        cout << endl;
+        buildingRecords[i] = record;
+        i++;
+    }
 
-    Computer comp;
-    Computer comp2;
-    comp.Description = "Hello";
-    comp.Identifier = 15;
-    comp.Value = 23.2;
+    i = 0;
+    while (i < numComputers) {
+        GenericRecord <Computer> record;
+        Computer computer;
+        computer.Description = getString("Enter description of computer " + to_string(i + 1) + ": ");
+        computer.Identifier = getInt("Enter identifier of computer " + to_string(i + 1) + ": ");
+        computer.Value = getInt("Enter value of computer " + to_string(i + 1) + ": ");
+        record.setRecord(computer);
+        
+        cout << endl;
+        computerRecords[i] = record;
+        i++;
+    }
 
-    computerRecords[0].setRecord(comp);
-    comp2 = computerRecords[0].getRecord();
-    cout << comp2.Description;
+    i = 0;
+    while (i < numFurniture) {
+        GenericRecord <Furniture> record;
+        Furniture furniture;
+        furniture.Description = getString("Enter description of furniture " + to_string(i + 1) + ": ");
+        furniture.Identifier = getInt("Enter identifier of furniture " + to_string(i + 1) + ": ");
+        furniture.Value = getFloat("Enter value of furniture " + to_string(i + 1) + ": ");
+        record.setRecord(furniture);
+        
+        cout << endl;
+        furnitureRecords[i] = record;
+        i++;
+    }
+    
+
+
     
 
     delete [] buildingRecords;

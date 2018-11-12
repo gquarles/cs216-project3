@@ -155,7 +155,7 @@ int main() {
         }
     }
 
-    if (numFurniture > 0) {}
+    if (numFurniture > 0) {
         cout << endl << "Furniture" << endl;
         printf("%-20s%-20s%-20s\n", "Identifier", "Description", "Value");
         i = 0;

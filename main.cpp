@@ -85,7 +85,7 @@ int main() {
         GenericRecord <Building> record;
         Building building;
         building.Description = getString("Enter description of building " + to_string(i + 1) + ": ");
-        building.Identifier = getInt("Enter identifier of building " + to_string(i + 1) + ": ");
+        building.Identifier = getString("Enter identifier of building " + to_string(i + 1) + ": ");
         building.Value = getFloat("Enter value of building " + to_string(i + 1) + ": ");
         record.setRecord(building);
         
@@ -110,6 +110,7 @@ int main() {
 
     i = 0;
     while (i < numFurniture) {
+        cout << i;
         GenericRecord <Furniture> record;
         Furniture furniture;
         furniture.Description = getString("Enter description of furniture " + to_string(i + 1) + ": ");
@@ -122,9 +123,21 @@ int main() {
         i++;
     }
     
+    cout << "Buildings" << endl;
+    printf("%-20s%-20s%-20s\n", "Identifier", "Description", "Value");
+    i = 0;
+    while (i < numBuildings) {
+        GenericRecord <Building> record;
+        Building building;
 
+        record = buildingRecords[i];
+        building = record.getRecord();
 
-    
+        printf("%-20s%-20s%-.5f\n", building.Identifier.c_str(), building.Description.c_str(), building.Value);
+        //cout << building.Description << endl << building.Identifier << endl << building.Value;
+        i++;
+    }
+
 
     delete [] buildingRecords;
     delete [] computerRecords;

@@ -1,0 +1,42 @@
+Script started on Mon 12 Nov 2018 09:25:33 PM EST
+]0;gquarles0004@grace: ~/CS216/cs216-project3gquarles0004@grace:~/CS216/cs216-project3$ make
+g++ -c main.cpp -std=c++11
+g++ -c GenericRecord.cpp -std=c++11
+g++ main.o GenericRecord.o -o a.out -std=c++11
+]0;gquarles0004@grace: ~/CS216/cs216-project3gquarles0004@grace:~/CS216/cs216-project3$ ,[K/[K./ao[K.out
+How many buildings: 1
+How many Computers: 2
+How many Furniture: 1
+
+Enter description of building 1: Buld One
+Enter identifier of building 1: Hello
+Enter value of building 1: 25
+
+Enter description of computer 1: Comp One
+Enter identifier of computer 1: 1
+Enter value of computer 1: 255
+
+Enter description of computer 2: Comp Two
+Enter identifier of computer 2: 2
+Enter value of computer 2: 278
+
+Enter description of furniture 1: Couch
+Enter identifier of furniture 1: 15
+Enter value of furniture 1: 15.20 2 
+
+Buildings
+Identifier          Description         Value               
+Hello               Buld One            25.00000
+
+Computers
+Identifier          Description         Value               
+1                   Comp One            255.00000
+2                   Comp Two            278.00000
+
+Furniture
+Identifier          Description         Value               
+15                  Couch               15.20000
+]0;gquarles0004@grace: ~/CS216/cs216-project3gquarles0004@grace:~/CS216/cs216-project3$ exit
+exit
+
+Script done on Mon 12 Nov 2018 09:27:17 PM EST
